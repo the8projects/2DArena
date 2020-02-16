@@ -47,6 +47,7 @@ public class Joystick : MonoBehaviour
             moveCharacter(direction);
             
             circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
+            //player.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
         }else{
             circle.GetComponent<SpriteRenderer>().enabled = false;
             outerCircle.GetComponent<SpriteRenderer>().enabled = false;
@@ -55,6 +56,15 @@ public class Joystick : MonoBehaviour
 
     void moveCharacter(Vector2 direction)
     {
-        player.Translate(direction * speed * Time.deltaTime);
+        //player.Translate(direction * speed * Time.deltaTime);
+        //player.eulerAngles = new Vector3( 0, Mathf.Atan2(Input.mousePosition.x, Input.mousePosition.y) * 180 / Mathf.PI, 0 );
+        //Quaternion target = Quaternion.Euler((Input.mousePosition.x * 60.0f), 0, (Input.mousePosition.y * 60.0f));
+        //player.rotation = Quaternion.Slerp(player.rotation, target,  Time.deltaTime * speed);
+        //float heading = Mathf.Atan2(Input.mousePosition.x,Input.mousePosition.y) * -1;
+        //player.rotation = Quaternion.Euler(0f,0f,heading * Mathf.Rad2Deg);
+
+        //Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 direction2 = (mouseWorldPosition - (Vector2) transform.position).normalized;
+        //player.up = direction2;
     }
 }
