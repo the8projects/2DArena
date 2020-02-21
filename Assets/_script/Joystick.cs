@@ -5,6 +5,7 @@ using UnityEngine;
 public class Joystick : MonoBehaviour
 {
     public Transform player;
+    public Transform weapon;
     public float speed = 40.0f;
     private bool touchStart = false;
     private Vector2 pointA;
@@ -48,7 +49,6 @@ public class Joystick : MonoBehaviour
             moveCharacter(direction);
             
             circle.transform.position = new Vector2(pointA.x + offset.x, pointA.y + offset.y);
-            //player.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
         }else{
             circle.GetComponent<SpriteRenderer>().enabled = false;
             outerCircle.GetComponent<SpriteRenderer>().enabled = false;
@@ -63,6 +63,7 @@ public class Joystick : MonoBehaviour
         //player.rotation = Quaternion.Slerp(player.rotation, target,  Time.deltaTime * speed);
         float heading = Mathf.Atan2((direction.x),(direction.y)) * -1;
         player.rotation = Quaternion.Euler(0f,0f,heading * Mathf.Rad2Deg);
+        weapon.rotation = Quaternion.Euler(0f,0f,heading * Mathf.Rad2Deg);
 
         //Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Vector2 direction2 = (mouseWorldPosition - (Vector2) transform.position).normalized;
